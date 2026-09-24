@@ -1,11 +1,13 @@
-import type { ItemStatus } from "@/entities"
+import type { AssignedPerson, AttachmentFormState, ItemStatus } from "@/entities"
 
 export interface IForm {
   title: string
   description: string
   status: ItemStatus | ""
-  assignedTo: string
+  assignedTo: AssignedPerson | null
+  collaborators: AssignedPerson[]
   dueDate: Date | null
+  attachments: AttachmentFormState[]
 }
 
 export interface IFormErrors {

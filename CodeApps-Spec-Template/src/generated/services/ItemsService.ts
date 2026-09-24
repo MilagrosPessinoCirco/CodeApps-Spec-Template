@@ -7,6 +7,12 @@
 // SDK del template. `dataSourcesInfo` normalmente lo produce `pac code
 // generate` a partir de la conexión configurada en `power.config.json`; aquí
 // se deja un placeholder mínimo para que el resto del código compile.
+//
+// A partir de 002-attachments-people-picker, `Items` es una lista de
+// SharePoint (dataSourceType "sharepoint") en vez de una tabla de Dataverse
+// (ver research.md §1 de esa feature). El GUID de la lista (`tableId`) es un
+// placeholder — se confirma al correr `pac code add-data-source -a
+// sharepoint -t Items` + `pac code generate` contra un environment real.
 
 import { getClient } from "@microsoft/power-apps/data"
 import type { ItemsModel } from "../models/ItemsModel"
@@ -18,9 +24,9 @@ const TABLE_NAME = "Items"
 // (tipado estructuralmente) en vez de importar el tipo interno.
 const dataSourcesInfo = {
   [TABLE_NAME]: {
-    tableId: "cr123_items",
-    primaryKey: "cr123_itemsid",
-    dataSourceType: "dataverse",
+    tableId: "00000000-0000-0000-0000-000000000000", // GUID placeholder de la lista SharePoint `Items`
+    primaryKey: "Id",
+    dataSourceType: "sharepoint",
     apis: {},
   },
 }

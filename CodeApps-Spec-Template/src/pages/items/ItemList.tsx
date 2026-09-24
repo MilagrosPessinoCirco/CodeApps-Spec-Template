@@ -60,7 +60,7 @@ export default function ItemList() {
       {
         accessorKey: "assignedTo",
         header: sortableHeader("AssignedTo"),
-        cell: ({ row }) => row.original.assignedTo ?? "sin asignar",
+        cell: ({ row }) => row.original.assignedTo?.displayName ?? "sin asignar",
       },
       {
         accessorKey: "dueDate",

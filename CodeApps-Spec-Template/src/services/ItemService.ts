@@ -7,7 +7,8 @@ function draftFromForm(input: IForm): Item {
     title: input.title,
     description: input.description || null,
     status: (input.status || "Pendiente") as Exclude<IForm["status"], "">,
-    assignedTo: input.assignedTo || null,
+    assignedTo: input.assignedTo,
+    collaborators: input.collaborators,
     dueDate: input.dueDate,
   })
 }
@@ -38,11 +39,11 @@ export async function create(input: IForm): Promise<Item> {
 
 export async function update(id: string, input: IForm): Promise<Item> {
   const record = draftFromForm(input).toRecord()
-  delete record.cr123_active
+  delete record.Active
   const updated = await itemsService.update(id, record)
   return new Item(updated)
 }
 
 export async function deactivate(id: string): Promise<void> {
-  await itemsService.update(id, { cr123_active: false })
+  await itemsService.update(id, { Active: false })
 }

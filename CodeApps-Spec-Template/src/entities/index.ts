@@ -1,2 +1,6 @@
 export { Item } from "./Item"
 export type { ItemStatus } from "./Item"
+export type { AssignedPerson } from "./AssignedPerson"
+export { getInitials, dedupKey } from "./AssignedPerson"
+export type { Attachment, AttachmentFormState } from "./Attachment"
+export { nextAttachmentInternalId } from "./Attachment"
